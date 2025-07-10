@@ -1,0 +1,35 @@
+﻿@model Study_Case_4.Models.MonthlyPivotReportViewModel
+
+@{
+    ViewData["Title"] = "Laporan Absensi Bulanan";
+}
+
+<h3>@ViewData["Title"]</h3>
+
+<table class="table table-bordered text-center">
+    <thead>
+        <tr>
+            <th>NIK</th>
+            <th>Nama</th>
+            @foreach (var monthHeader in Model.MonthHeaders)
+            {
+                <th>@monthHeader</th>
+            }
+            <th>Total</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var row in Model.Rows)
+        {
+            <tr>
+                <td>@row.NIK</td>
+                <td>@row.Nama</td>
+                @foreach (var count in row.AttendanceCounts)
+                {
+                    <td>@count</td>
+                }
+                <td>@row.Total</td>
+            </tr>
+        }
+    </tbody>
+</table>

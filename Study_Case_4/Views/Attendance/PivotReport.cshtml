@@ -1,0 +1,35 @@
+﻿@model Study_Case_4.Models.PivotReportViewModel
+
+@{
+    ViewData["Title"] = "Laporan Absensi Pivot";
+}
+
+<h3>@ViewData["Title"]</h3>
+
+<table class="table table-bordered text-center">
+    <thead>
+        <tr>
+            <th>NIK</th>
+            <th>Nama</th>
+            @foreach (var dateHeader in Model.DateHeaders)
+            {
+                <th>@dateHeader</th>
+            }
+            <th>Total</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var row in Model.Rows)
+        {
+            <tr>
+                <td>@row.NIK</td>
+                <td>@row.Nama</td>
+                @foreach (var mark in row.AttendanceMarks)
+                {
+                    <td>@mark</td>
+                }
+                <td>@row.Total</td>
+            </tr>
+        }
+    </tbody>
+</table>
