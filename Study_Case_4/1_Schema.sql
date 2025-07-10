@@ -20,7 +20,6 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 
--- Membuat tabel absensi dengan Primary Key gabungan dan Foreign Key
 CREATE TABLE [dbo].[Absensi](
 	[NIK] [varchar](10) NOT NULL,
 	[TanggalAbsen] [date] NOT NULL,
